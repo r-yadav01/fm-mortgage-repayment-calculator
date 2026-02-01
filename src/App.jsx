@@ -2,17 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import { Form } from './Form';
 import { Result } from './Result';
+import { calculate } from './utils';
 import { GlobalStyles } from './GlobalStyles';
 
 function App() {
+    const mockData = { amount: 300000, term: 25, rate: 5.25, type: 'Repayment' };
+
+    let result = calculate(mockData);
+
     return (
         <>
             <Calculator>
                 <Header />
-
-                <Form />
-
-                <Result />
+                <Form {...mockData} />
+                <Result info={result} />
             </Calculator>
             <GlobalStyles />
         </>
