@@ -13,7 +13,10 @@ function App() {
     return (
         <>
             <Calculator>
-                <Header />
+                <Header>
+                    <h1>Mortgage Calculator</h1>
+                    <button>Clear All</button>
+                </Header>
                 <Form {...mockData} />
                 <Result info={result} />
             </Calculator>
@@ -22,19 +25,20 @@ function App() {
     );
 }
 
-function Header() {
-    return (
-        <header>
-            <h1>Mortgage Calculator</h1>
-            <button>Clear All</button>
-        </header>
-    );
-}
+const Header = styled.header`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+`;
 
 const Calculator = styled.div`
     max-width: 430px;
     margin-inline: auto;
     padding: 1.5rem 1.25rem;
     outline: 2px dashed black;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 `;
 export default App;

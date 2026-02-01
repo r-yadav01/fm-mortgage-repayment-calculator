@@ -22,6 +22,7 @@ function Display({ monthly, total }) {
             <div>
                 <p>Your monthly repayments</p> <strong>{monthly}</strong>
             </div>
+            <hr />
             <div>
                 <p>Total you'll repay over the term</p> <strong>{total}</strong>
             </div>

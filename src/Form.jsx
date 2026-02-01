@@ -1,6 +1,9 @@
+import styled from 'styled-components';
+import { RadioInputFieldSet, InputFieldSet } from './InputTypes';
+
 export function Form({ amount, term, rate, type }) {
     return (
-        <form action='#'>
+        <InputForm>
             <InputFieldSet
                 type='number'
                 title='Mortgage Amount'
@@ -20,55 +23,15 @@ export function Form({ amount, term, rate, type }) {
                 inputValue={rate}
             />
 
-            <fieldset>
-                <legend>Mortgage Type</legend>
-
-                <LabeledRadioInput
-                    label='Repayment'
-                    groupName='mortgage_type'
-                    inputValue={type}
-                />
-
-                <LabeledRadioInput
-                    label='Interest Only'
-                    groupName='mortgage_type'
-                    inputValue={type}
-                />
-            </fieldset>
+            <RadioInputFieldSet type={type} />
 
             <button type='submit'>Calculate Repayments</button>
-        </form>
+        </InputForm>
     );
 }
 
-function LabeledRadioInput({ label, groupName, inputValue }) {
-    return (
-        <div>
-            <input
-                type='radio'
-                id={label}
-                value={label}
-                checked={label === inputValue}
-                name={groupName}
-            />
-            <label htmlFor={label}>{label}</label>
-        </div>
-    );
-}
-
-function InputFieldSet({ title, label, type, inputValue }) {
-    return (
-        <fieldset>
-            <legend>{title}</legend>
-            <div>
-                <label htmlFor={title}>{label}</label>
-                <input
-                    type={type}
-                    id={title}
-                    name={label}
-                    value={inputValue}
-                />
-            </div>
-        </fieldset>
-    );
-}
+const InputForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+`;

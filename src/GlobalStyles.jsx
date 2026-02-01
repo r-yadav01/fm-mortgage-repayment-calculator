@@ -83,6 +83,7 @@ const GlobalStyles = createGlobalStyle`
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
+    font-size: 16px;
   }
 
 `;
