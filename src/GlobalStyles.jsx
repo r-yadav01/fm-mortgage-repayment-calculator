@@ -78,6 +78,13 @@ const GlobalStyles = createGlobalStyle`
     isolation: isolate;
   }
 
+  :root {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+
 `;
 
 export { GlobalStyles };
