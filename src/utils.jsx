@@ -24,3 +24,17 @@ export function calculate({ amount = 0, term = 0, rate = 0, type }) {
         total: totalRepayment.toFixed(2),
     };
 }
+
+export function updateResultShown({ event, setResult }) {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+
+    const newAmount = formData.get('£');
+    const newTerm = formData.get('years');
+    const newRate = formData.get('%');
+    const newType = formData.get('mortgage_type');
+
+    const newResult = calculate({ amount: newAmount, term: newTerm, rate: newRate, type: newType });
+    setResult(newResult);
+}

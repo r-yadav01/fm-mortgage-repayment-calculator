@@ -1,27 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
-import { calculate } from './utils';
+import { updateResultShown } from './utils';
 import { RadioInputFieldSet, InputFieldSet } from './InputTypes';
-
-function updateResultShown({ event, setAmount, setTerm, setRate, setType, setResult }) {
-    event.preventDefault();
-
-    const formData = new FormData(event.currentTarget);
-
-    const newAmount = formData.get('£');
-    const newTerm = formData.get('years');
-    const newRate = formData.get('%');
-    const newType = formData.get('mortgage_type');
-
-    setAmount(newAmount);
-    setTerm(newTerm);
-    setRate(newRate);
-    setTerm(newTerm);
-    setType(newType);
-
-    const newResult = calculate({ newAmount, newTerm, newRate, newType });
-    setResult(newResult);
-}
 
 export function Form({ setResult }) {
     const [amount, setAmount] = React.useState('');
@@ -30,17 +10,16 @@ export function Form({ setResult }) {
     const [type, setType] = React.useState('');
 
     function reset() {
-        setAmount('');
-        setTerm('');
-        setRate('');
-        setTerm('');
+        setAmount(0);
+        setTerm(0);
+        setRate(0);
+        setType(0);
+        setResult({ monthly: null, total: null });
     }
 
     return (
         <InputForm
-            onSubmit={(event) =>
-                updateResultShown({ event, setAmount, setTerm, setRate, setType, setResult })
-            }
+            onSubmit={(event) => updateResultShown({ event, setResult })}
             noValidate={true}
         >
             <button onClick={reset}>Clear All</button>

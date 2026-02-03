@@ -12,7 +12,6 @@ function App() {
             <Calculator>
                 <Header>
                     <h1>Mortgage Calculator</h1>
-                    {/* <button onClick={() => setMockData(emptyData)}>Clear All</button> */}
                 </Header>
                 <Form setResult={setResult} />
                 <Result result={result} />
