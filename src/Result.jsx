@@ -1,5 +1,9 @@
-export function Result({ info }) {
-    const { monthly, total } = info;
+import { calculate } from './utils';
+
+export function Result({ ...data }) {
+    let result = calculate(data);
+
+    const { monthly, total } = result;
     return (
         <footer>
             <h2>Your results</h2>

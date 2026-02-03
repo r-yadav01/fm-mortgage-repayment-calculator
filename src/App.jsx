@@ -2,13 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { Form } from './Form';
 import { Result } from './Result';
-import { calculate } from './utils';
 import { GlobalStyles } from './GlobalStyles';
 
 function App() {
-    const mockData = { amount: 300000, term: 25, rate: 5.25, type: 'Repayment' };
-
-    let result = calculate(mockData);
+    const [mockData, setMockData] = React.useState({
+        amount: 300000,
+        term: 25,
+        rate: 5.25,
+        type: 'Repayment',
+    });
 
     return (
         <>
@@ -17,8 +19,11 @@ function App() {
                     <h1>Mortgage Calculator</h1>
                     <button>Clear All</button>
                 </Header>
-                <Form {...mockData} />
-                <Result info={result} />
+                <Form
+                    {...mockData}
+                    setMockData={setMockData}
+                />
+                <Result {...mockData} />
             </Calculator>
             <GlobalStyles />
         </>
@@ -41,4 +46,5 @@ const Calculator = styled.div`
     flex-direction: column;
     gap: 2rem;
 `;
+
 export default App;
