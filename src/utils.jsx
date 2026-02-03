@@ -1,4 +1,4 @@
-export function calculate({ amount, term, rate, type }) {
+export function calculate({ amount = 0, term = 0, rate = 0, type }) {
     const P = parseFloat(amount);
     const annualRate = parseFloat(rate) / 100;
     const monthlyRate = annualRate / 12;

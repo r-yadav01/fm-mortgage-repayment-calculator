@@ -1,10 +1,8 @@
-import { calculate } from './utils';
-
-export function Result({ ...data }) {
-    let result = calculate(data);
-
+export function Result({ result }) {
+    console.log(result);
     const { monthly, total } = result;
-    return (
+
+    const realThing = (
         <footer>
             <h2>Your results</h2>
             <p>
@@ -18,6 +16,14 @@ export function Result({ ...data }) {
             />
         </footer>
     );
+
+    let showNothing = false;
+
+    if (monthly === null && total === null) {
+        showNothing = true;
+    }
+
+    return <>{showNothing ? backup : realThing}</>;
 }
 
 function Display({ monthly, total }) {
@@ -35,7 +41,7 @@ function Display({ monthly, total }) {
 }
 
 const backup = (
-    <>
+    <footer>
         <div>
             <img
                 src='./src/assets/illustration-empty.svg'
@@ -47,5 +53,5 @@ const backup = (
             Complete the form and click "calculate repayments" to see what your monthly repayments
             would be.
         </p>
-    </>
+    </footer>
 );

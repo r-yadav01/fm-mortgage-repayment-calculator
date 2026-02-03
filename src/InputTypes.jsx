@@ -1,8 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
 
-export function InputFieldSet({ title, label, type, inputValue }) {
-    const [value, setValue] = React.useState(inputValue);
+export function InputFieldSet({ title, label, type, value, setValue }) {
+    // const [value, setValue] = React.useState(inputValue);
 
     return (
         <FieldSet>
@@ -21,9 +20,7 @@ export function InputFieldSet({ title, label, type, inputValue }) {
     );
 }
 
-export function RadioInputFieldSet({ type }) {
-    const [value, setValue] = React.useState(type);
-
+export function RadioInputFieldSet({ type, setType }) {
     return (
         <FieldSet>
             <legend>Mortgage Type</legend>
@@ -31,30 +28,30 @@ export function RadioInputFieldSet({ type }) {
             <LabeledRadioInput
                 label='Repayment'
                 groupName='mortgage_type'
-                inputValue={value}
-                update={setValue}
+                value={type}
+                setValue={setType}
             />
 
             <LabeledRadioInput
                 label='Interest Only'
                 groupName='mortgage_type'
-                inputValue={value}
-                update={setValue}
+                value={type}
+                setValue={setType}
             />
         </FieldSet>
     );
 }
 
-function LabeledRadioInput({ label, groupName, inputValue, update }) {
+function LabeledRadioInput({ label, groupName, value, setValue }) {
     return (
         <div>
             <input
                 type='radio'
                 id={label}
                 value={label}
-                checked={label === inputValue}
+                checked={label === value}
                 name={groupName}
-                onClick={(e) => update(e.target.value)}
+                onChange={(e) => setValue(e.target.value)}
             />
             <label htmlFor={label}>{label}</label>
         </div>

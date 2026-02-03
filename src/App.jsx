@@ -5,25 +5,17 @@ import { Result } from './Result';
 import { GlobalStyles } from './GlobalStyles';
 
 function App() {
-    const [mockData, setMockData] = React.useState({
-        amount: 300000,
-        term: 25,
-        rate: 5.25,
-        type: 'Repayment',
-    });
+    const [result, setResult] = React.useState({ monthly: null, total: null });
 
     return (
         <>
             <Calculator>
                 <Header>
                     <h1>Mortgage Calculator</h1>
-                    <button>Clear All</button>
+                    {/* <button onClick={() => setMockData(emptyData)}>Clear All</button> */}
                 </Header>
-                <Form
-                    {...mockData}
-                    setMockData={setMockData}
-                />
-                <Result {...mockData} />
+                <Form setResult={setResult} />
+                <Result result={result} />
             </Calculator>
             <GlobalStyles />
         </>
