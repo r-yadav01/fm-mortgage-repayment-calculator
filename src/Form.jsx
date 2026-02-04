@@ -22,7 +22,7 @@ export function Form({ setResult }) {
             onSubmit={(event) => updateResultShown({ event, setResult })}
             noValidate={true}
         >
-            <button onClick={reset}>Clear All</button>
+            <Reset onClick={reset}>Clear All</Reset>
 
             <InputFieldSet
                 type='number'
@@ -30,6 +30,7 @@ export function Form({ setResult }) {
                 label='£'
                 value={amount}
                 setValue={setAmount}
+                labelReverse={false}
             />
             <InputFieldSet
                 type='number'
@@ -37,6 +38,7 @@ export function Form({ setResult }) {
                 label='years'
                 value={term}
                 setValue={setTerm}
+                labelReverse={true}
             />
             <InputFieldSet
                 type='number'
@@ -44,6 +46,7 @@ export function Form({ setResult }) {
                 label='%'
                 value={rate}
                 setValue={setRate}
+                labelReverse={true}
             />
 
             <RadioInputFieldSet
@@ -51,7 +54,13 @@ export function Form({ setResult }) {
                 setType={setType}
             />
 
-            <button type='submit'>Calculate Repayments</button>
+            <Submit type='submit'>
+                <img
+                    src='./src/assets/icon-calculator.svg'
+                    alt='calc_icon'
+                />
+                Calculate Repayments
+            </Submit>
         </InputForm>
     );
 }
@@ -60,4 +69,23 @@ const InputForm = styled.form`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    /* outline: 2px dashed red; */
+`;
+
+const Reset = styled.button`
+    border: none;
+    text-decoration: underline;
+    align-self: flex-start;
+`;
+
+const Submit = styled.button`
+    padding: 1rem;
+    font-weight: 700;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    border-radius: 5rem;
+    border: none;
+    align-items: center;
+    background-color: hsl(61, 70%, 52%);
 `;

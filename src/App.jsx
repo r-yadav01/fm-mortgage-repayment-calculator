@@ -26,12 +26,13 @@ const Header = styled.header`
     flex-direction: column;
     align-items: flex-start;
     gap: 0.75rem;
+    color: hsl(202, 55%, 16%);
 `;
 
 const Calculator = styled.div`
     max-width: 430px;
     margin-inline: auto;
-    padding: 1.5rem 1.25rem;
+    padding: 1.5rem;
     outline: 2px dashed black;
     display: flex;
     flex-direction: column;

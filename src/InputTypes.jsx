@@ -1,29 +1,27 @@
 import styled from 'styled-components';
 
-export function InputFieldSet({ title, label, type, value, setValue }) {
-    // const [value, setValue] = React.useState(inputValue);
-
+export function InputFieldSet({ title, label, type, value, setValue, labelReverse }) {
     return (
         <FieldSet>
-            <legend>{title}</legend>
-            <div>
-                <label htmlFor={title}>{label}</label>
-                <input
+            <Legend>{title}</Legend>
+            <TextInputPair labelReverse={labelReverse}>
+                <InputLabel htmlFor={title}>{label}</InputLabel>
+                <Input
                     type={type}
                     id={title}
                     name={label}
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
                 />
-            </div>
+            </TextInputPair>
         </FieldSet>
     );
 }
 
 export function RadioInputFieldSet({ type, setType }) {
     return (
-        <FieldSet>
-            <legend>Mortgage Type</legend>
+        <RadioFieldSet>
+            <Legend>Mortgage Type</Legend>
 
             <LabeledRadioInput
                 label='Repayment'
@@ -38,14 +36,14 @@ export function RadioInputFieldSet({ type, setType }) {
                 value={type}
                 setValue={setType}
             />
-        </FieldSet>
+        </RadioFieldSet>
     );
 }
 
 function LabeledRadioInput({ label, groupName, value, setValue }) {
     return (
-        <div>
-            <input
+        <RadioPair checked={label === value}>
+            <RadioInput
                 type='radio'
                 id={label}
                 value={label}
@@ -53,12 +51,65 @@ function LabeledRadioInput({ label, groupName, value, setValue }) {
                 name={groupName}
                 onChange={(e) => setValue(e.target.value)}
             />
-            <label htmlFor={label}>{label}</label>
-        </div>
+            <RadioLabel htmlFor={label}>{label}</RadioLabel>
+        </RadioPair>
     );
 }
 
 const FieldSet = styled.fieldset`
     border: none;
     padding: 0rem;
+`;
+
+const RadioFieldSet = styled.fieldset`
+    border: none;
+    padding: 0rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+`;
+
+const Legend = styled.legend`
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: hsl(200, 24%, 40%);
+`;
+
+const RadioPair = styled.div`
+    padding: 0.25rem 0.75rem 0.3rem;
+    border-radius: 0.25rem;
+    overflow: clip;
+    background-color: ${(p) => (p.checked ? 'hsl(61, 70%, 52%, 0.2)' : 'revert')};
+    border: 1px solid ${(p) => (p.checked ? 'hsl(61, 70%, 52%)' : 'hsl(200, 26%, 54%)')};
+`;
+
+const RadioInput = styled.input`
+    margin-right: 0.5rem;
+    accent-color: ${(p) => (p.checked ? 'hsl(61, 70%, 52%)' : 'revert')};
+`;
+
+const RadioLabel = styled.label`
+    color: hsl(202, 55%, 16%);
+    font-weight: 700;
+`;
+
+const TextInputPair = styled.div`
+    display: flex;
+    flex-direction: ${(p) => (p.labelReverse ? 'row-reverse' : 'row')};
+    border: 1px solid hsl(200, 26%, 54%);
+    border-radius: 0.25rem;
+    overflow: clip;
+`;
+
+const InputLabel = styled.label`
+    padding: 0.4rem 0.75rem 0.5rem;
+    background-color: hsl(202, 86%, 94%);
+    color: hsl(200, 24%, 40%);
+    font-weight: 700;
+`;
+
+const Input = styled.input`
+    flex: 1;
+    border: none;
+    padding: 0rem 0.75rem;
 `;

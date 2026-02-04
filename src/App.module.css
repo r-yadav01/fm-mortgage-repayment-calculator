@@ -1,0 +1,16 @@
+.calculator_wrapper {
+    max-width: 430px;
+    margin-inline: auto;
+    padding: 1.5rem 1.25rem;
+    outline: 2px dashed black;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
