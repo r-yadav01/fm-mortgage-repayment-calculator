@@ -84,6 +84,8 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 500;
     font-style: normal;
     font-size: 16px;
+
+    --tabletAndUp: 550px;
   }
 
 `;

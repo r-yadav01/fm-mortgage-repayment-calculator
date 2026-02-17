@@ -22,7 +22,7 @@ export function Form({ setResult }) {
             onSubmit={(event) => updateResultShown({ event, setResult })}
             noValidate={true}
         >
-            <Reset onClick={reset}>Clear All</Reset>
+            <Reset onClick={reset}>Clear</Reset>
 
             <InputFieldSet
                 type='number'
@@ -32,22 +32,24 @@ export function Form({ setResult }) {
                 setValue={setAmount}
                 labelReverse={false}
             />
-            <InputFieldSet
-                type='number'
-                title='Mortgage Term'
-                label='years'
-                value={term}
-                setValue={setTerm}
-                labelReverse={true}
-            />
-            <InputFieldSet
-                type='number'
-                title='Interest Rate'
-                label='%'
-                value={rate}
-                setValue={setRate}
-                labelReverse={true}
-            />
+            <TermNRate>
+                <InputFieldSet
+                    type='number'
+                    title='Mortgage Term'
+                    label='years'
+                    value={term}
+                    setValue={setTerm}
+                    labelReverse={true}
+                />
+                <InputFieldSet
+                    type='number'
+                    title='Interest Rate'
+                    label='%'
+                    value={rate}
+                    setValue={setRate}
+                    labelReverse={true}
+                />
+            </TermNRate>
 
             <RadioInputFieldSet
                 type={type}
@@ -65,21 +67,33 @@ export function Form({ setResult }) {
     );
 }
 
+const TermNRate = styled.div`
+    @media (min-width: 550px) {
+        display: flex;
+        gap: 1rem;
+    }
+`;
+
 const InputForm = styled.form`
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    /* outline: 2px dashed red; */
 `;
 
 const Reset = styled.button`
     border: none;
     text-decoration: underline;
     align-self: flex-start;
+    border: 1px solid;
+
+    @media (min-width: 550px) {
+        align-self: flex-end;
+        margin-top: -1.5rem;
+    }
 `;
 
 const Submit = styled.button`
-    padding: 1rem;
+    padding: 0.75rem 1rem;
     font-weight: 700;
     display: flex;
     gap: 1rem;
@@ -88,4 +102,9 @@ const Submit = styled.button`
     border: none;
     align-items: center;
     background-color: hsl(61, 70%, 52%);
+
+    @media (min-width: 550px) {
+        padding: 0.5rem 1.5rem 0.6rem;
+        align-self: flex-start;
+    }
 `;

@@ -5,7 +5,7 @@ export function Result({ result }) {
     const { monthly, total } = result;
 
     const realThing = (
-        <Footer centerAlign={false}>
+        <Footer centeralign={false}>
             <FooterHeading>Your results</FooterHeading>
             <FooterInfo centerAlign={false}>
                 Your results are shown below based on the information you provided. To adjust the
@@ -84,9 +84,14 @@ const Footer = styled.footer`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: ${(p) => (p.centerAlign ? 'center' : 'stretch')};
-    margin: 0rem -1.5rem -1.5rem;
     padding: 1.5rem;
+    align-items: ${(p) => (p.centeralign ? 'center' : 'stretch')};
+
+    @media (min-width: 550px) {
+        flex: 1;
+        margin: 0rem;
+        border-radius: 0rem 0rem 0rem 3rem;
+    }
 `;
 
 const FooterHeading = styled.h2`
@@ -96,12 +101,12 @@ const FooterHeading = styled.h2`
 const FooterInfo = styled.p`
     color: hsl(203, 41%, 72%);
 
-    text-align: ${(p) => (p.centerAlign ? 'center' : 'inline-start')};
+    text-align: ${(p) => (p.centeralign ? 'center' : 'inline-start')};
     padding: 1rem 0rem;
 `;
 
 const backup = (
-    <Footer centerAlign={true}>
+    <Footer centeralign={true}>
         <div>
             <img
                 src='./src/assets/illustration-empty.svg'
@@ -109,7 +114,7 @@ const backup = (
             />
         </div>
         <FooterHeading>Results shown here</FooterHeading>
-        <FooterInfo centerAlign={true}>
+        <FooterInfo centeralign={true}>
             Complete the form and click "calculate repayments" to see what your monthly repayments
             would be.
         </FooterInfo>

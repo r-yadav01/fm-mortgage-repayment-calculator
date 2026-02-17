@@ -8,18 +8,39 @@ function App() {
     const [result, setResult] = React.useState({ monthly: null, total: null });
 
     return (
-        <>
+        <Wrapper>
             <Calculator>
-                <Header>
-                    <h1>Mortgage Calculator</h1>
-                </Header>
-                <Form setResult={setResult} />
+                <InputPart>
+                    <Header>
+                        <h1>Mortgage Calculator</h1>
+                    </Header>
+                    <Form setResult={setResult} />
+                </InputPart>
                 <Result result={result} />
             </Calculator>
             <GlobalStyles />
-        </>
+        </Wrapper>
     );
 }
+
+const Wrapper = styled.div`
+    background-color: hsl(202, 86%, 94%);
+    @media (min-width: 550px) {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+`;
+
+const InputPart = styled.div`
+    padding: 1.5rem 1rem 1rem;
+    @media (min-width: 550px) {
+        max-width: 50%;
+        padding: 2rem;
+    }
+`;
 
 const Header = styled.header`
     display: flex;
@@ -32,11 +53,17 @@ const Header = styled.header`
 const Calculator = styled.div`
     max-width: 430px;
     margin-inline: auto;
-    padding: 1.5rem;
-    outline: 2px dashed black;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    background-color: white;
+
+    @media (min-width: 550px) {
+        max-width: 900px;
+        flex-direction: row;
+        border-radius: 0.75rem;
+        padding: 0rem;
+        overflow: clip;
+    }
 `;
 
 export default App;

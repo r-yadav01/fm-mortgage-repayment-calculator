@@ -109,7 +109,7 @@ const InputLabel = styled.label`
 `;
 
 const Input = styled.input`
-    flex: 1;
     border: none;
     padding: 0rem 0.75rem;
+    width: 100%;
 `;
