@@ -86,9 +86,22 @@ const Reset = styled.button`
     align-self: flex-start;
     border: 1px solid;
 
+    &:active {
+        background-color: hsl(61, 70%, 72%);
+        outline: 2px solid hsl(61, 70%, 52%);
+        color: hsl(200, 24%, 20%);
+        text-decoration: none;
+    }
+
     @media (min-width: 550px) {
         align-self: flex-end;
         margin-top: -1.5rem;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            outline: 2px solid hsl(61, 70%, 52%);
+        }
     }
 `;
 
@@ -103,6 +116,12 @@ const Submit = styled.button`
     align-items: center;
     background-color: hsl(61, 70%, 52%);
 
+    &:active {
+        background-color: hsl(61, 70%, 72%);
+        outline: 2px solid hsl(61, 70%, 52%);
+        color: hsl(200, 24%, 20%);
+    }
+
     @media (min-width: 550px) {
         padding: 0.5rem 1.5rem 0.6rem;
         align-self: flex-start;
@@ -111,7 +130,6 @@ const Submit = styled.button`
     @media (hover: hover) {
         &:hover {
             background-color: hsl(61, 70%, 72%);
-            outline: 2px solid hsl(61, 70%, 52%);
         }
     }
 `;
