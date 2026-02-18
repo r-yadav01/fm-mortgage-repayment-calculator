@@ -81,6 +81,12 @@ const RadioPair = styled.div`
     overflow: clip;
     background-color: ${(p) => (p.checked ? 'hsl(61, 70%, 52%, 0.2)' : 'revert')};
     border: 1px solid ${(p) => (p.checked ? 'hsl(61, 70%, 52%)' : 'hsl(200, 26%, 54%)')};
+
+    @media (hover: hover) {
+        &:hover {
+            outline: 2px solid hsl(61, 70%, 52%);
+        }
+    }
 `;
 
 const RadioInput = styled.input`
@@ -99,6 +105,21 @@ const TextInputPair = styled.div`
     border: 1px solid hsl(200, 26%, 54%);
     border-radius: 0.25rem;
     overflow: clip;
+
+    &:focus-within {
+        outline: 2px solid hsl(61, 70%, 52%);
+
+        label {
+            background-color: hsl(61, 70%, 52%);
+            color: hsl(202, 55%, 16%);
+        }
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            outline: 2px solid hsl(61, 70%, 52%);
+        }
+    }
 `;
 
 const InputLabel = styled.label`
@@ -112,4 +133,8 @@ const Input = styled.input`
     border: none;
     padding: 0rem 0.75rem;
     width: 100%;
+
+    &:focus {
+        outline: none;
+    }
 `;

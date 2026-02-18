@@ -25,6 +25,8 @@ function App() {
 
 const Wrapper = styled.div`
     background-color: hsl(202, 86%, 94%);
+    height: 100%;
+
     @media (min-width: 550px) {
         height: 100vh;
         display: flex;
@@ -56,6 +58,7 @@ const Calculator = styled.div`
     display: flex;
     flex-direction: column;
     background-color: white;
+    justify-content: space-between;
 
     @media (min-width: 550px) {
         max-width: 900px;

@@ -88,6 +88,10 @@ const GlobalStyles = createGlobalStyle`
     --tabletAndUp: 550px;
   }
 
+  html, body, #root {
+  height: 100%;
+  }
+
 `;
 
 export { GlobalStyles };

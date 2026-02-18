@@ -77,7 +77,7 @@ const TermNRate = styled.div`
 const InputForm = styled.form`
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.25rem;
 `;
 
 const Reset = styled.button`
@@ -106,5 +106,12 @@ const Submit = styled.button`
     @media (min-width: 550px) {
         padding: 0.5rem 1.5rem 0.6rem;
         align-self: flex-start;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: hsl(61, 70%, 72%);
+            outline: 2px solid hsl(61, 70%, 52%);
+        }
     }
 `;
