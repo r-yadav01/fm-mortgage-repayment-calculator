@@ -81,6 +81,7 @@ const RadioPair = styled.div`
     overflow: clip;
     background-color: ${(p) => (p.checked ? 'hsl(61, 70%, 52%, 0.2)' : 'revert')};
     border: 1px solid ${(p) => (p.checked ? 'hsl(61, 70%, 52%)' : 'hsl(200, 26%, 54%)')};
+    display: flex;
 
     @media (hover: hover) {
         &:hover {
@@ -97,6 +98,8 @@ const RadioInput = styled.input`
 const RadioLabel = styled.label`
     color: hsl(202, 55%, 16%);
     font-weight: 700;
+    display: block;
+    width: 100%;
 `;
 
 const TextInputPair = styled.div`

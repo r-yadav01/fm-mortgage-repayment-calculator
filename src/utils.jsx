@@ -1,4 +1,4 @@
-export function calculate({ amount = 0, term = 0, rate = 0, type }) {
+export function calculate({ amount = 0, term = 0, rate = 0, type = 'Repayment' }) {
     const P = parseFloat(amount);
     const annualRate = parseFloat(rate) / 100;
     const monthlyRate = annualRate / 12;
@@ -30,10 +30,12 @@ export function updateResultShown({ event, setResult }) {
 
     const formData = new FormData(event.currentTarget);
 
-    const newAmount = formData.get('£');
-    const newTerm = formData.get('years');
-    const newRate = formData.get('%');
+    const newAmount = Number(formData.get('£'));
+    const newTerm = Number(formData.get('years'));
+    const newRate = Number(formData.get('%'));
     const newType = formData.get('mortgage_type');
+
+    console.log({ newAmount, newTerm, newRate, newType });
 
     const newResult = calculate({ amount: newAmount, term: newTerm, rate: newRate, type: newType });
     setResult(newResult);

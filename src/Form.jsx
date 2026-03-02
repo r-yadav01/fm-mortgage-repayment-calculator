@@ -10,10 +10,10 @@ export function Form({ setResult }) {
     const [type, setType] = React.useState('');
 
     function reset() {
-        setAmount(0);
-        setTerm(0);
-        setRate(0);
-        setType(0);
+        setAmount('');
+        setTerm('');
+        setRate('');
+        setType('');
         setResult({ monthly: null, total: null });
     }
 
