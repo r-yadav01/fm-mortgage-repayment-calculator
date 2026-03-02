@@ -109,7 +109,7 @@ const backup = (
     <Footer centeralign={true}>
         <div>
             <img
-                src='./src/assets/illustration-empty.svg'
+                src='./illustration-empty.svg'
                 alt='illustration'
             />
         </div>

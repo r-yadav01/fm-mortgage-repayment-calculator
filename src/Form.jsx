@@ -58,7 +58,7 @@ export function Form({ setResult }) {
 
             <Submit type='submit'>
                 <img
-                    src='./src/assets/icon-calculator.svg'
+                    src='./icon-calculator.svg'
                     alt='calc_icon'
                 />
                 Calculate Repayments
